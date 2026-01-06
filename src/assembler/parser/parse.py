@@ -1,24 +1,25 @@
 class Parser:
   def __init__(self):
     # opens up the input file and gets ready to parse it
+    return
 
-    def hasMoreLines():
-      return False
+  def hasMoreLines(self):
+    return False
 
-    def advance():
-      return
+  def advance(self):
+    return
 
-    def instructionType():
-      return
+  def instructionType(self):
+    return
 
-    def symbol():
-      return
+  def symbol(self):
+    return
 
-    def dest():
-      return
+  def dest(self):
+    return
 
-    def comp():
-      return
+  def comp(self):
+    return
 
-    def jump():
-      return
+  def jump(self):
+    return

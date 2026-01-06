@@ -1,12 +1,13 @@
 class Code:
   def __init__(self):
+    return
 
-    def dest(destination):
-      return
+  def dest(self, destination):
+    return
 
-    def comp(computation):
-      return
+  def comp(self, computation):
+    return
 
-    def jump(jump_instruction):
-      return
+  def jump(self, jump_instruction):
+    return
 

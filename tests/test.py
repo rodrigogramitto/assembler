@@ -1,5 +1,5 @@
 from src.assembler.hackAssembler import HackAssembler
 
-assemble = HackAssembler()
+assembler = HackAssembler()
 
-print(assemble)
+assembler.assemble("Add.asm")
