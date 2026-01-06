@@ -1,25 +1,58 @@
+from pathlib import Path
+from collections import deque
+import re
+
 class Parser:
-  def __init__(self):
-    # opens up the input file and gets ready to parse it
-    return
+  def __init__(self, filepath):
+    filepath = Path(filepath).resolve()
+    self.cur_instruction = None
+    with open(filepath) as file:
+      self.lines = deque(file.readlines())
+
 
   def hasMoreLines(self):
-    return False
+    return len(self.lines) > 0
 
   def advance(self):
-    return
+    while self.hasMoreLines():
+      curline = self.lines.popleft()
+      curline = re.sub(r"//.*", "", curline.strip())
+      if not curline:
+        continue
+      self.cur_instruction = curline
+      return
 
   def instructionType(self):
-    return
+
+    if self.cur_instruction.startswith('@'):
+      return 'A_COMMAND'
+    elif self.cur_instruction.startswith('('):
+      return 'L_COMMAND'
+    else:
+      return 'C_COMMAND'
 
   def symbol(self):
-    return
+    if self.instructionType() == 'A_COMMAND':
+      return self.cur_instruction[1::]
+    else:
+      return self.cur_instruction[1:-1]
 
   def dest(self):
-    return
+    if '=' in self.cur_instruction:
+      return self.cur_instruction[:self.cur_instruction.index('=')]
+    else:
+      return None
 
   def comp(self):
-    return
+    start, end = 0, len(self.cur_instruction)
+    if '=' in self.cur_instruction:
+      start = self.cur_instruction.index('=') + 1
+    if ';' in self.cur_instruction:
+      end = self.cur_instruction.index(';')
+    return self.cur_instruction[start:end]
 
   def jump(self):
-    return
+    if ';' in self.cur_instruction:
+      return self.cur_instruction[self.cur_instruction.index(';') + 1:]
+    else:
+      return None
