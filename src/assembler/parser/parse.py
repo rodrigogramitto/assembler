@@ -9,7 +9,6 @@ class Parser:
     with open(filepath) as file:
       self.lines = deque(file.readlines())
 
-
   def hasMoreLines(self):
     return len(self.lines) > 0
 
