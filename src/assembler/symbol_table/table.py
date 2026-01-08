@@ -1,5 +1,7 @@
 class SymbolTable:
   def __init__(self):
+    self.next_address = 15
+    self.max_address = 16383
     self.symbols = {
       'R0': 0,
       'R1': 1,
@@ -34,3 +36,10 @@ class SymbolTable:
 
   def get_address(self, symbol):
     return self.symbols[symbol]
+
+  def get_next_address(self):
+    if self.next_address <= self.max_address:
+      self.next_address += 1
+      return self.next_address
+    else:
+      return None

@@ -1,5 +1,5 @@
-from src.assembler.hackAssembler import HackAssembler
+from hackAssembler import HackAssembler
 
 assembler = HackAssembler()
 
-assembler.assemble("PongL.asm")
+assembler.assemble("Add.asm")
