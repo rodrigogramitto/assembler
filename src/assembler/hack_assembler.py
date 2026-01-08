@@ -58,6 +58,5 @@ class HackAssembler:
 
   def assemble(self, filepath):
     self.parse_symbols(filepath)
-    print(self.symbol_table.symbols)
     self.build_executable(filepath)
 
